@@ -22,7 +22,7 @@ router.get('/facebookLogin', passport.authenticate('facebook'));
 router.get('/login/facebookRedirect', passport.authenticate('facebook'), (req, res) => {
 
 
-		res.redirect('/');
+res.redirect('/');
 		res.send('Callback URI' + req.user);
 
 
@@ -36,7 +36,7 @@ router.get('/githubLogin', passport.authenticate('github'));
 router.get('/login/githubRedirect', passport.authenticate('github'), (req, res) => {
 
 
-		res.redirect('/');
+res.redirect('/');
 		res.send('Callback URI' + req.user);
 
 

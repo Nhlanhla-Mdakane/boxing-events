@@ -16,7 +16,8 @@ const mongoose = require('mongoose');
 
 const helmet=require("helmet");
 
-
+const path =require("path");
+require("dotenv").config();
 
 
 app.use(cookieSession({
@@ -29,7 +30,7 @@ app.use(passport.session());
 
 
 
-mongoose.connect(keys.mongoDB.dbURI, () => {
+mongoose.connect(process.env.MONGODB_URI||keys.mongoDB.dbURI, () => {
   console.log('Connected to MongoDb');
 })
 
