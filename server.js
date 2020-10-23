@@ -30,7 +30,7 @@ app.use(passport.session());
 
 
 
-mongoose.connect(process.env.MONGODB_URI||keys.mongoDB.dbURI, () => {
+mongoose.connect(keys.mongoDB.dbURI, () => {
   console.log('Connected to MongoDb');
 })
 
@@ -50,7 +50,7 @@ app.listen(PORT, () => {
 });
 
 if (process.env.NODE_ENV==='production') {
-  app.use(express.static(path.join(_dirname,'frontend/buld')));
+  app.use(express.static(path.join(_dirname,'frontend/build')));
   app.get('*',(req,res)=>{res.sendFile(path.resolve(_dirname,'frontend','build','index.html'));})
 
 }
